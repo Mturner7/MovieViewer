@@ -1,0 +1,13 @@
+C:\Users\mturner7\dev\Week3Labs\MovieCategories\MovieCategories\bin\Debug\netcoreapp3.1\MovieCategories.exe
+C:\Users\mturner7\dev\Week3Labs\MovieCategories\MovieCategories\bin\Debug\netcoreapp3.1\MovieCategories.deps.json
+C:\Users\mturner7\dev\Week3Labs\MovieCategories\MovieCategories\bin\Debug\netcoreapp3.1\MovieCategories.runtimeconfig.json
+C:\Users\mturner7\dev\Week3Labs\MovieCategories\MovieCategories\bin\Debug\netcoreapp3.1\MovieCategories.runtimeconfig.dev.json
+C:\Users\mturner7\dev\Week3Labs\MovieCategories\MovieCategories\bin\Debug\netcoreapp3.1\MovieCategories.dll
+C:\Users\mturner7\dev\Week3Labs\MovieCategories\MovieCategories\bin\Debug\netcoreapp3.1\MovieCategories.pdb
+C:\Users\mturner7\dev\Week3Labs\MovieCategories\MovieCategories\obj\Debug\netcoreapp3.1\MovieCategories.csprojAssemblyReference.cache
+C:\Users\mturner7\dev\Week3Labs\MovieCategories\MovieCategories\obj\Debug\netcoreapp3.1\MovieCategories.AssemblyInfoInputs.cache
+C:\Users\mturner7\dev\Week3Labs\MovieCategories\MovieCategories\obj\Debug\netcoreapp3.1\MovieCategories.AssemblyInfo.cs
+C:\Users\mturner7\dev\Week3Labs\MovieCategories\MovieCategories\obj\Debug\netcoreapp3.1\MovieCategories.csproj.CoreCompileInputs.cache
+C:\Users\mturner7\dev\Week3Labs\MovieCategories\MovieCategories\obj\Debug\netcoreapp3.1\MovieCategories.dll
+C:\Users\mturner7\dev\Week3Labs\MovieCategories\MovieCategories\obj\Debug\netcoreapp3.1\MovieCategories.pdb
+C:\Users\mturner7\dev\Week3Labs\MovieCategories\MovieCategories\obj\Debug\netcoreapp3.1\MovieCategories.genruntimeconfig.cache
