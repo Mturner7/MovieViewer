@@ -5,11 +5,10 @@ namespace MovieCategories
 {
     class Program
     {
-        private static readonly List<string> categories = new List<string>() { "Animated", "Sci-fi", "Horror", "Drama", "Fantasy" };
         public static List<Movie> movies = new List<Movie>() 
         {
             new Movie("Drama", "Me and the Boys: redemption", 2002),
-            new Movie("sci-fi", "Star Wars Episode III: Revenge of the Sith", 2003),
+            new Movie("sci-fi", "Star Wars Episode III", 2003),
             new Movie("Animated", "Sonic the hedghehog", 2020),
             new Movie("Fantasy", "Lord of the rings", 2001),
             new Movie("Sci-fi", "Tron: Legacy", 2010),
@@ -25,9 +24,9 @@ namespace MovieCategories
         {
             Console.Clear();
             Console.WriteLine($"There are {movies.Count} movies in our database.\n");
-            for (int i = 0; i < categories.Count; i++)
+            for (int i = 0; i < Movie.categories.Count; i++)
             {
-                Console.WriteLine($"{i + 1}. {categories[i]}");
+                Console.WriteLine($"{i + 1}. {Movie.categories[i]}");
             }
             Console.WriteLine();
         }
@@ -40,7 +39,7 @@ namespace MovieCategories
             Int32.TryParse(Console.ReadLine(), out input);
             --input;
 
-            if (input > categories.Count - 1 || input < 0)
+            if (input > Movie.categories.Count - 1 || input < 0)
             {
                 Console.WriteLine("\nThat is not a valid category. Please try again next time.");
                 return;
@@ -52,7 +51,7 @@ namespace MovieCategories
         public static void viewCategory(int index)
         {
             Console.Clear();
-            string category = categories[index];
+            string category = Movie.categories[index];
             string seperator = new string('=', 50);
 
             Console.WriteLine($"Movies in the {category} category:\n");
@@ -64,28 +63,30 @@ namespace MovieCategories
             }
             Console.WriteLine(seperator);
         }
-                    
+        private static bool ContinuePrompt(string msg)
+        {
+            string input = "";
+            while (input != "n" && input != "y")
+            {
+                Console.Write($"\n{msg}? (y/n): ");
+                input = Console.ReadLine().ToLower();
+            }
+            if (input == "n") return false;
+            return true;
+        }
 
         static void Main(string[] args)
         {
             bool running = true;
-            string input;
             
             while (running)
             {
                 viewCategories();
                 promptUser();
-
-                do //Confirmation loop. 
-                {
-                    Console.Write("\nWould you like to view a different category? (y/n): ");
-                    input = Console.ReadLine().ToLower();
-                } while (input != "y" && input != "n");
-
-                if (input == "n") running = false;
+                running = ContinuePrompt("Would you like to view a different category?");
             }
 
-            Console.WriteLine("\nGG no RE\n");
+            Console.WriteLine("\nThank you for using this software!\n");
             
         }
     }

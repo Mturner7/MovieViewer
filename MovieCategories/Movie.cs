@@ -5,6 +5,7 @@ namespace MovieCategories
 {
     class Movie
     {
+        public static readonly List<string> categories = new List<string>() { "Animated", "Sci-fi", "Horror", "Drama", "Fantasy" };
         private int releaseDate;
         public int ReleaseDate
         {
