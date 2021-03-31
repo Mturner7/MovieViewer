@@ -1,17 +1,21 @@
 ﻿using System;
-using System.Collections.Generic;
 
 namespace MovieCategories
 {
-    class Movie
+    class Movie : FeatureFilms
     {
-        public static readonly List<string> categories = new List<string>() { "Animated", "Sci-fi", "Horror", "Drama", "Fantasy" };
-
         private int releaseDate;
         public int ReleaseDate
         {
             get { return releaseDate; }
-            set { releaseDate = ReleaseDate; }
+            set
+            {
+                if (ReleaseDate < 0)
+                {
+                    releaseDate = 2000;
+                }
+                else releaseDate = ReleaseDate;
+            }
         }
 
         private string title;
@@ -25,14 +29,15 @@ namespace MovieCategories
         public string Category
         {
             get { return category; }
-            set { Category = Category.ToLower(); }
+            set { category = Category.Substring(0,1).ToUpper() + Category.Substring(1).ToLower(); }
         }
 
         public Movie(string Category, string Title, int ReleaseDate)
         {
             releaseDate = ReleaseDate;
-            category = Category.ToLower();
+            category = Category.Substring(0, 1).ToUpper() + Category.Substring(1).ToLower();
             title = Title;
+            Movies.Add(this);
         }
     }
 }
