@@ -20,6 +20,44 @@ namespace MovieCategories
             new Movie("Fantasy", "The masked man", 1943)
         };
 
+        private static bool ContinuePrompt(string msg)
+        {
+            string input = "";
+            while (input != "n" && input != "y")
+            {
+                Console.Write($"\n{msg} (y/n): ");
+                input = Console.ReadLine().ToLower();
+            }
+            if (input == "n") return false;
+            return true;
+        }
+
+        private static void promptUser()
+        {
+            int index;
+            string input;
+
+            Console.Write("Which category are you interested in? (enter a category # or name): ");
+            input = Console.ReadLine();
+
+            if (Movie.categories.Contains(input))
+            {
+                viewCategory(0, input);
+                return;
+            }
+
+            Int32.TryParse(input, out index);
+            --index;
+
+            if (index > Movie.categories.Count - 1 || index < 0)
+            {
+                Console.WriteLine("\nThat is not a valid category. Please try again next time.");
+                return;
+            }
+            else viewCategory(index, "");
+        }
+
+
         public static void viewCategories()
         {
             Console.Clear();
@@ -31,63 +69,37 @@ namespace MovieCategories
             Console.WriteLine();
         }
 
-        private static void promptUser()
+        public static void viewCategory(int index, string input)
         {
-            int input;
+            if (input.Length > 0) index = Movie.categories.IndexOf(input);
 
-            Console.Write("Which category are you interested in? (enter a number 1-5): ");
-            Int32.TryParse(Console.ReadLine(), out input);
-            --input;
-
-            if (input > Movie.categories.Count - 1 || input < 0)
-            {
-                Console.WriteLine("\nThat is not a valid category. Please try again next time.");
-                return;
-            }
-            else viewCategory(input);
-
-        }
-
-        public static void viewCategory(int index)
-        {
-            Console.Clear();
             string category = Movie.categories[index];
             string seperator = new string('=', 50);
 
+            Console.Clear();
             Console.WriteLine($"Movies in the {category} category:\n");
-            Console.WriteLine($"{ "Title", -30} { "Release Date", 5}");
-            Console.WriteLine(seperator);
+            Console.WriteLine($"{ "Title", -30} { "Release Date", 5} \n{seperator}");
+
             foreach(Movie movie in movies)
             {
-                if (movie.Category == category.ToLower()) Console.WriteLine($"{movie.Title, -30} \t {movie.ReleaseDate, 5}");
+                if (movie.Category == category.ToLower())
+                {
+                    Console.WriteLine($"{movie.Title,-30} \t {movie.ReleaseDate,5}");
+                }
             }
             Console.WriteLine(seperator);
-        }
-        private static bool ContinuePrompt(string msg)
-        {
-            string input = "";
-            while (input != "n" && input != "y")
-            {
-                Console.Write($"\n{msg}? (y/n): ");
-                input = Console.ReadLine().ToLower();
-            }
-            if (input == "n") return false;
-            return true;
         }
 
         static void Main(string[] args)
         {
             bool running = true;
-            
             while (running)
             {
                 viewCategories();
                 promptUser();
                 running = ContinuePrompt("Would you like to view a different category?");
             }
-
             Console.WriteLine("\nThank you for using this software!\n");
-            
         }
     }
 }
