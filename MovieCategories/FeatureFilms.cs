@@ -40,8 +40,3 @@ namespace MovieCategories
         }
     }
 }
-        
-       
-
-        
-

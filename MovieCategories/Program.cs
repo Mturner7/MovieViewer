@@ -42,17 +42,17 @@ namespace MovieCategories
 
         static void Main(string[] args)
         {
-            Movie movie1 = new Movie("Drama", "Me and the Boys: redemption", 2002);
-            Movie movie2 = new Movie("sci-fi", "Star Wars Episode III", 2003);
-            Movie movie3 = new Movie("animated", "Sonic the hedghehog", 2020);
-            Movie movie4 = new Movie("fantasy", "Lord of the rings", 2001);
-            Movie movie5 = new Movie("sci-fi", "Tron: Legacy", 2010);
-            Movie movie6 = new Movie("Horror", "Friday the 13th", 1987);
-            Movie movie7 = new Movie("Sci-fi", "Transformers", 2007);
-            Movie movie8 = new Movie("Horror", "Willy's Wonderland", 2020);
-            Movie movie9 = new Movie("Drama", "The sad man", 2021);
-            Movie movie10 = new Movie("Animated", "The sad woman", 1956);
-            Movie movie11 = new Movie("Fantasy", "The masked man", 1943);
+            Movie movie = new Movie("Drama", "Me and the Boys: redemption", 2002);
+            movie = new Movie("sci-fi", "Star Wars Episode III", 2003);
+            movie = new Movie("animated", "Sonic the hedghehog", 2020);
+            movie = new Movie("fantasy", "Lord of the rings", 2001);
+            movie = new Movie("sci-fi", "Tron: Legacy", 2010);
+            movie = new Movie("Horror", "Friday the 13th", 1987);
+            movie = new Movie("Sci-fi", "Transformers", 2007);
+            movie = new Movie("Horror", "Willy's Wonderland", 2020);
+            movie = new Movie("Drama", "The sad man", 2021);
+            movie = new Movie("Animated", "The sad woman", 1956);
+            movie = new Movie("Fantasy", "The masked man", 1943);
 
             bool running = true;
             while (running)
