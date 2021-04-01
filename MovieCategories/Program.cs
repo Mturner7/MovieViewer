@@ -21,8 +21,7 @@ namespace MovieCategories
         {
             FeatureFilms.ViewCategories();
             Console.Write("Which category are you interested in? (enter a category # or name): ");
-            string input = Console.ReadLine();
-            FeatureFilms.ViewMovies(input);
+            FeatureFilms.ViewMovies(Console.ReadLine());
         }
 
         static void Main(string[] args)
