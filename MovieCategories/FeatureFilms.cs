@@ -6,7 +6,7 @@ namespace MovieCategories
     class FeatureFilms
     {
         protected static List<Movie> Movies = new List<Movie>();
-        public static readonly List<string> Categories = new List<string>() { "Animated", "Sci-fi", "Horror", "Drama", "Fantasy" };
+        protected static List<string> Categories = new List<string>() { "Animated", "Sci-fi", "Horror", "Drama", "Fantasy" };
 
         public static void ViewCategories()
         {
@@ -20,8 +20,33 @@ namespace MovieCategories
             Console.WriteLine();
         }
 
-        public static void ViewMovies(int categoryIndex)
+        private static int ValidateCategory(string input)
         {
+            int categoryIndex = -1;
+     
+            if (!Int32.TryParse(input, out categoryIndex) && Categories.Contains(input))
+            {
+                return Categories.IndexOf(input);
+            }
+
+            else if (categoryIndex < 1 || categoryIndex > Categories.Count)
+            {
+                return -1;
+            }
+
+            --categoryIndex;
+            return categoryIndex;
+        }
+
+        public static void ViewMovies(string input)
+        {
+            int categoryIndex = ValidateCategory(input);
+            if (categoryIndex == -1)
+            {
+                Console.WriteLine("\nThat's not a valid category, please try again.");
+                return;
+            }
+
             string category = Categories[categoryIndex];
             string seperator = new string('=', 50);
 

@@ -5,7 +5,7 @@ namespace MovieCategories
 {
     class Program
     {
-        private static bool UserContinues(string msg)
+        private static bool ContinuePrompt(string msg)
         {
             string input = "";
             while (input != "n" && input != "y")
@@ -19,25 +19,10 @@ namespace MovieCategories
 
         private static void PromptUser()
         {
-            int index; //index of category user wants to view
-            string input;
-
+            FeatureFilms.ViewCategories();
             Console.Write("Which category are you interested in? (enter a category # or name): ");
-            input = Console.ReadLine();
-
-            if (!Int32.TryParse(input, out index) && FeatureFilms.Categories.Contains(input))
-            {
-                index = FeatureFilms.Categories.IndexOf(input);
-            }
-
-            else if (index < 1 || index > FeatureFilms.Categories.Count)
-            {
-                Console.WriteLine("That's not a valid category, please try again.");
-                return;
-            }
-            else --index;
-
-            FeatureFilms.ViewMovies(index);
+            string input = Console.ReadLine();
+            FeatureFilms.ViewMovies(input);
         }
 
         static void Main(string[] args)
@@ -57,9 +42,8 @@ namespace MovieCategories
             bool running = true;
             while (running)
             {
-                FeatureFilms.ViewCategories();
                 PromptUser();
-                running = UserContinues("Would you like to view a different category?");
+                running = ContinuePrompt("Would you like to view a different category?");
             }
             Console.WriteLine("\nThank you for using this software!\n");
         }
